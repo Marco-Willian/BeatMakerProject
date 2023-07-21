@@ -1,6 +1,6 @@
-// import  { pressing }  from "./object.json";
+import  { pressing }  from "./object.json";
 
-let pressing = require('./object.json')
+// let pressing = require('./object.json')
 
 // const pressing = {
 //     keyArrowDown :"ArrowDown",
