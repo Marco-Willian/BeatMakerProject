@@ -1,24 +1,5 @@
-import  { pressing }  from "./object.json";
-
-// let pressing = require('./object.json')
-
-// const pressing = {
-//     keyArrowDown :"ArrowDown",
-//     keyArrowUp: "ArrowUp",
-//     KeyArrowLeft: "ArrowLeft",
-//     KeyArrowRight: "ArrowRight",
-//     KeyArrowLeft: "ArrowLeft",
-//     KeyEnter: "Enter"
-// }
-
-
-
-// var audio = new Audio("sounds/drums/virtual-drum_sounds_boom.wav");
-// var audio2 = new Audio("sounds/drums/virtual-drum_sounds_clap.wav")
-// var audio3 = new Audio("sounds/drums/virtual-drum_sounds_hithat.wav")
-// var audio4 = new Audio("sounds/drums/virtual-drum_sounds_kick.wav")
-// var audio2 = new Audio("sounds/drums/virtual-drum_sounds_openhat.wav")
-// var audio6 = new Audio("sounds/drums/virtual-drum_sounds_ride.wav")
+import   pressing   from "./keys.js";
+import  audio  from "./sounds.js";
 
 window.addEventListener(
     "keydown",
@@ -26,32 +7,31 @@ window.addEventListener(
       if (event.defaultPrevented) {
         return; // Do nothing if the event was already processed
       }
-  
+
+      let soundToPlay = null;
+
       switch (event.key) {
         case pressing.keyArrowDown:
-          audio.currentTime = 0;  
-          audio.play();
+          soundToPlay = new Audio(audio.boom);        
           break;
         case pressing.keyArrowUp:
-        //   audio2.currentTime = 0;  
-        //   audio2.play();
+          soundToPlay = new Audio(audio.clap);      
           break;
-        case "ArrowLeft":
-          // Do something for "left arrow" key press.
+        case pressing.KeyArrowLeft:
+          soundToPlay = new Audio(audio.hihat);        
           break;
-        case "ArrowRight":
-          // Do something for "right arrow" key press.
+        case pressing.KeyArrowRight:
+          soundToPlay = new Audio(audio.kick)        
           break;
         case "Enter":
-          // Do something for "enter" or "return" key press.
-          break;
-        case "Escape":
-          // Do something for "esc" key press.
           break;
         default:
           return; // Quit when this doesn't handle the key event.
       }
-  
+      if(soundToPlay){
+        soundToPlay.currentTime = 0;
+        soundToPlay.play();
+      }
       // Cancel the default action to avoid it being handled twice
       event.preventDefault();
     },
