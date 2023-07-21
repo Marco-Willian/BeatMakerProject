@@ -1,6 +1,19 @@
 import   pressing   from "./keys.js";
 import  audio  from "./sounds.js";
 
+
+const pegaValor = document.querySelector("#send");
+
+pegaValor.addEventListener("click", function(event){
+  event.preventDefault();
+
+  const name = document.querySelector("#custom_key");
+
+  const value = name.value;
+
+  console.log(value)
+})
+
 window.addEventListener(
     "keydown",
     (event) => {
