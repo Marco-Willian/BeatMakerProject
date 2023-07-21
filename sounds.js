@@ -6,6 +6,8 @@ const audio =
         "kick": "sounds/drums/virtual-drum_sounds_kick.wav",
         "openhat": "sounds/drums/virtual-drum_sounds_openhat.wav",
         "ride": "sounds/drums/virtual-drum_sounds_ride.wav",
+        "snare": "sounds/drums/virtual-drum_sounds_snare.wav",
+        "tink": "sounds/drums/virtual-drum_sounds_tink.wav",
 }
 
 

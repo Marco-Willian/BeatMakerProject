@@ -23,7 +23,12 @@ window.addEventListener(
         case pressing.KeyArrowRight:
           soundToPlay = new Audio(audio.kick)        
           break;
-        case "Enter":
+        case pressing.keyD:
+          if(event.ctrlKey){
+            soundToPlay = new Audio(audio.tink)
+          }else{
+            soundToPlay = new Audio(audio.snare)
+          }
           break;
         default:
           return; // Quit when this doesn't handle the key event.
