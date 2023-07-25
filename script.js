@@ -4,27 +4,20 @@ import  audio  from "./sounds.js";
 
 const pegaValor = document.querySelector("#send");
 
-let firt_value;
-let second_value;
-let third_value;
-let fouth_value;
-let fifth_value;
+const inputKey = [
+  "first_custom_key",
+  "second_custom_key",
+  "third_custom_key",
+  "fouth_custom_key",
+  "fifth_custom_key"
+];
+
+let values = [];
 
 pegaValor.addEventListener("click", function(event){
   event.preventDefault();
   
-  const key_1 = document.querySelector("#first_custom_key");
-  const key_2 = document.querySelector("#second_custom_key");
-  const key_3 = document.querySelector("#third_custom_key");
-  const key_4 = document.querySelector("#fouth_custom_key");
-  const key_5 = document.querySelector("#fifth_custom_key");
-
-  firt_value = key_1.value;
-  second_value = key_2.value;
-  third_value = key_3.value;
-  fouth_value = key_4.value;
-  fifth_value = key_5.value;
-
+  values = inputKey.map(key => document.querySelector(`#${key}`).value);
 })
 
 window.addEventListener(
@@ -37,19 +30,19 @@ window.addEventListener(
       let soundToPlay = null;
 
       switch (event.key) {
-        case firt_value:
+        case values[0]:
           soundToPlay = new Audio(audio.boom);        
           break;
-        case second_value:
+        case values[1]:
           soundToPlay = new Audio(audio.clap);      
           break;
-        case third_value:
+        case values[2]:
           soundToPlay = new Audio(audio.hihat);        
           break;
-        case fouth_value:
+        case values[3]:
           soundToPlay = new Audio(audio.kick);        
           break;
-        case fifth_value:
+        case values[4]:
           if(event.ctrlKey){
             soundToPlay = new Audio(audio.tink);
           }else{
