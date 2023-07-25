@@ -1,12 +1,8 @@
-import   pressing   from "./keys.js";
+// import   pressing   from "./keys.js";
 import  audio  from "./sounds.js";
 
 
-const pegaValor1 = document.querySelector("#first_send");
-const pegaValor2 = document.querySelector("#second_send");
-const pegaValor3 = document.querySelector("#third_send");
-const pegaValor4 = document.querySelector("#fouth_send");
-const pegaValor5 = document.querySelector("#fifth_send");
+const pegaValor = document.querySelector("#send");
 
 let firt_value;
 let second_value;
@@ -14,44 +10,21 @@ let third_value;
 let fouth_value;
 let fifth_value;
 
-pegaValor1.addEventListener("click", function(event){
+pegaValor.addEventListener("click", function(event){
   event.preventDefault();
+  
+  const key_1 = document.querySelector("#first_custom_key");
+  const key_2 = document.querySelector("#second_custom_key");
+  const key_3 = document.querySelector("#third_custom_key");
+  const key_4 = document.querySelector("#fouth_custom_key");
+  const key_5 = document.querySelector("#fifth_custom_key");
 
-  const name = document.querySelector("#first_custom_key");
+  firt_value = key_1.value;
+  second_value = key_2.value;
+  third_value = key_3.value;
+  fouth_value = key_4.value;
+  fifth_value = key_5.value;
 
-  firt_value = name.value;
-})
-
-pegaValor2.addEventListener("click", function(event){
-  event.preventDefault();
-
-  const name = document.querySelector("#second_custom_key");
-
-  second_value = name.value;
-})
-
-pegaValor3.addEventListener("click", function(event){
-  event.preventDefault();
-
-  const name = document.querySelector("#third_custom_key");
-
-  third_value = name.value;
-})
-
-pegaValor4.addEventListener("click", function(event){
-  event.preventDefault();
-
-  const name = document.querySelector("#fouth_custom_key");
-
-  fouth_value = name.value;
-})
-
-pegaValor5.addEventListener("click", function(event){
-  event.preventDefault();
-
-  const name = document.querySelector("#fifth_custom_key");
-
-  fifth_value = name.value;
 })
 
 window.addEventListener(
