@@ -20,7 +20,7 @@
     width: 100%;
     margin-bottom: 10px;
   }
-  .area-clique {
+  /* .area-clique {
     margin: 1rem;
     width: 25px;
     height: 25px;
@@ -29,5 +29,38 @@
     text-align: center;
     line-height: 100px;
     cursor: pointer;
+  } */
+
+
+  .container{
+    display: grid;
+    grid-template-columns:1fr;
+    grid-row:2/6;
+  } 
+
+  .container-child{
+    display: grid;
+    grid-template-columns:200px 200px;
+  }
+  .flex{
+    display:flex;
+  }
+  
+  .area-clique {
+      margin: 0.15rem;
+      width: 35px;
+      height: 35px;
+      background-color: #5A5A5A;
+      text-align: center;
+      line-height: 100px;
+      cursor: pointer;
+      border-radius: 0.25rem;
+    }
+  
+    .instrumento{
+    width: 4rem;
+    }
+  .ultima_linha{
+    grid-column: 2/6;
   }
   
