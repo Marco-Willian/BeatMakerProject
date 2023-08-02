@@ -35,18 +35,27 @@
   .container{
     display: grid;
     grid-template-columns:1fr;
-    grid-row:2/6;
   } 
 
   .container-child{
     display: grid;
-    grid-template-columns:200px 200px;
+    grid-template-columns:4.25rem 14.75rem;   
   }
   .flex{
     display:flex;
   }
   
-  .area-clique {
+  .tocadores_colunas {
+      margin: 0.15rem;
+      width: 35px;
+      height: 35px;
+      background-color: #5A5A5A;
+      text-align: center;
+      line-height: 100px;
+      cursor: pointer;
+      border-radius: 0.25rem;
+    }
+    .tocadores_linhas{
       margin: 0.15rem;
       width: 35px;
       height: 35px;
@@ -58,9 +67,16 @@
     }
   
     .instrumento{
-    width: 4rem;
+      width: 4rem;
+      margin: 0.15rem;
+      height: 35px;
+      background-color: #5A5A5A;
+      text-align: center;
+      line-height: 100px;
+      cursor: pointer;
+      border-radius: 0.25rem;
     }
   .ultima_linha{
-    grid-column: 2/6;
+    width: 14.75rem;
   }
   

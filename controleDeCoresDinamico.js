@@ -1,6 +1,6 @@
-var areasClique = document.querySelectorAll('.area-clique');
-var cores = ['#000000', '#ff0000', '#00ff00', '#f5a742', '#9400d3'];
-var corPadrao = '#4287f5';
+var areasClique = document.querySelectorAll('.tocadores_colunas');
+var cores = ['#1ccb38', '#c1093c', '#a60dc3', '#d09c58', '#B9CF77', '#CFBF80'];
+var corPadrao = '#5A5A5A';
 
 var coresAtuais = Array.from(areasClique).map(() => corPadrao);
 
