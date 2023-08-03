@@ -17,9 +17,12 @@ function mudarCor(areaClique, cor) {
   areaClique.style.backgroundColor = cor;
 }
 
-var quadrado = document.getElementById('quadrado1');
-var som = new Audio('sounds/piano/316913__jaz_the_man_2__si.wav');
+var quadrado = document.querySelectorAll('#som');
+
+var som = 'sounds/piano/316913__jaz_the_man_2__si.wav';
+
+var sons = Array.from(quadrado).map( ()=> som);
 
 quadrado.addEventListener('click', function() {
-    som.play();
+    sons.play();
 });

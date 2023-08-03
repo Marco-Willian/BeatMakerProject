@@ -1,26 +1,27 @@
 .fx {
-    -webkit-display: flex;
-    display: flex;
-    margin-left: -20px;
-    margin-right: -20px;
-  }
-  
-  .fx > div {
-    padding-left: 20px;
-    padding-right: 20px;
-  }
-  
-  .fx > div:first-child {
-    width: 30%;
-  }
-  
-  
-  #test-target {
-    display: block;
-    width: 100%;
-    margin-bottom: 10px;
-  }
-  /* .area-clique {
+  -webkit-display: flex;
+  display: flex;
+  margin-left: -20px;
+  margin-right: -20px;
+}
+
+.fx>div {
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+.fx>div:first-child {
+  width: 30%;
+}
+
+
+#test-target {
+  display: block;
+  width: 100%;
+  margin-bottom: 10px;
+}
+
+/* .area-clique {
     margin: 1rem;
     width: 25px;
     height: 25px;
@@ -32,51 +33,77 @@
   } */
 
 
-  .container{
-    display: grid;
-    grid-template-columns:1fr;
-  } 
+.container {
+  display: grid;
+  grid-template-columns: 1fr;
+}
 
-  .container-child{
-    display: grid;
-    grid-template-columns:4.25rem 14.75rem;   
-  }
-  .flex{
-    display:flex;
-  }
-  
-  .tocadores_colunas {
-      margin: 0.15rem;
-      width: 35px;
-      height: 35px;
-      background-color: #5A5A5A;
-      text-align: center;
-      line-height: 100px;
-      cursor: pointer;
-      border-radius: 0.25rem;
-    }
-    .tocadores_linhas{
-      margin: 0.15rem;
-      width: 35px;
-      height: 35px;
-      background-color: #5A5A5A;
-      text-align: center;
-      line-height: 100px;
-      cursor: pointer;
-      border-radius: 0.25rem;
-    }
-  
-    .instrumento{
-      width: 4rem;
-      margin: 0.15rem;
-      height: 35px;
-      background-color: #5A5A5A;
-      text-align: center;
-      line-height: 100px;
-      cursor: pointer;
-      border-radius: 0.25rem;
-    }
-  .ultima_linha{
-    width: 14.75rem;
-  }
-  
+.container-child {
+  display: grid;
+  grid-template-columns: 4.25rem 14.75rem;
+}
+
+.flex {
+  display: flex;
+}
+
+.tocadores_colunas {
+  margin: 0.15rem;
+  width: 35px;
+  height: 35px;
+  background-color: #5A5A5A;
+  text-align: center;
+  line-height: 100px;
+  cursor: pointer;
+  border-radius: 0.25rem;
+}
+
+.tocadores_linhas {
+  margin: 0.15rem;
+  width: 35px;
+  height: 35px;
+  background-color: #5A5A5A;
+  text-align: center;
+  line-height: 100px;
+  cursor: pointer;
+  border-radius: 0.25rem;
+}
+
+.first.alterado {
+  background-color: #1ccb38;
+}
+
+.second.alterado{
+  background-color: #c1093c;
+}
+
+.third.alterado{
+  background-color: #a60dc3;
+}
+
+.fourth.alterado{
+  background-color: #d09c58;
+}
+
+.fifth.alterado{
+  background-color: #B9CF77;
+}
+
+.sixth.alterado{
+  background-color: #CFBF80;
+}
+
+.instrumento {
+  width: 4rem;
+  margin: 0.15rem;
+  height: 35px;
+  background-color: #5A5A5A;
+  text-align: center;
+  line-height: 100px;
+  cursor: pointer;
+  border-radius: 0.25rem;
+}
+
+.ultima_linha {
+  width: 14.75rem;
+}

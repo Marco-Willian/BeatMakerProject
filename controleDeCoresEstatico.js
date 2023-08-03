@@ -1,14 +1,47 @@
-var areasClique = document.querySelectorAll('.tocadores_linhas');
-
-var cor = '#1ccb38';
-var corOriginal = '#5A5A5A';
+var areasClique = document.querySelectorAll('.first');
 
 areasClique.forEach(function(areaClique) {
-    areaClique.addEventListener('click', ()=>{
-        if(areaClique.style.backgroundColor === 'rgb(26, 203, 56)'){
-            areaClique.style.backgroundColor = '#5A5A5A';
-        }else{
-            areaClique.style.backgroundColor = '#1ccb38';
-        }
+    areaClique.addEventListener('click', function() {
+        areaClique.classList.toggle('alterado');
+    });
+});
+
+var areasClique = document.querySelectorAll('.second');
+
+areasClique.forEach(function(areaClique) {
+    areaClique.addEventListener('click', function() {
+        areaClique.classList.toggle('alterado');
+    });
+});
+
+var areasClique = document.querySelectorAll('.third');
+
+areasClique.forEach(function(areaClique) {
+    areaClique.addEventListener('click', function() {
+        areaClique.classList.toggle('alterado');
+    });
+});
+
+var areasClique = document.querySelectorAll('.fourth');
+
+areasClique.forEach(function(areaClique) {
+    areaClique.addEventListener('click', function() {
+        areaClique.classList.toggle('alterado');
+    });
+});
+
+var areasClique = document.querySelectorAll('.fifth');
+
+areasClique.forEach(function(areaClique) {
+    areaClique.addEventListener('click', function() {
+        areaClique.classList.toggle('alterado');
+    });
+});
+
+var areasClique = document.querySelectorAll('.sixth');
+
+areasClique.forEach(function(areaClique) {
+    areaClique.addEventListener('click', function() {
+        areaClique.classList.toggle('alterado');
     });
 });
