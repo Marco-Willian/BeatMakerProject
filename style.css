@@ -32,6 +32,11 @@
     cursor: pointer;
   } */
 
+  .button{
+    width: 4rem;
+    height: 2rem;
+    margin-left: 0.25rem;
+  }
 
 .container {
   display: grid;
@@ -41,6 +46,11 @@
 .container-child {
   display: grid;
   grid-template-columns: 4.25rem 14.75rem;
+}
+
+.container_buttons{
+  display: grid;
+  grid-template-columns: 5rem 15rem;
 }
 
 .flex {
