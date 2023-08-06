@@ -21,17 +21,6 @@
   margin-bottom: 10px;
 }
 
-/* .area-clique {
-    margin: 1rem;
-    width: 25px;
-    height: 25px;
-    background-color: #4287f5;
-    color: white;
-    text-align: center;
-    line-height: 100px;
-    cursor: pointer;
-  } */
-
   .button{
     width: 4rem;
     height: 2rem;
@@ -79,7 +68,7 @@
   border-radius: 0.25rem;
 }
 
-.first.alterado {
+.first.alterado{
   background-color: #1ccb38;
 }
 
