@@ -5,26 +5,16 @@ var cores = ['#1ccb38', '#c1093c', '#a60dc3', '#d09c58', '#B9CF77', '#CFBF80'];
 var corPadrao = '#5A5A5A';
 
 var coresAtuais = Array.from(areasClique).map(() => corPadrao);
-var coresAtivas = new Set();
 
-areasClique.forEach(function(areaClique, index) {
-  areaClique.addEventListener('click', function() {
+var clicarSom = document.querySelectorAll('.som');
+var arrayDeSom = new Set();
+
+areasClique.forEach(function (areaClique, index) {
+  areaClique.addEventListener('click', function () {
     var corAtual = coresAtuais[index];
     var novaCor = corAtual === corPadrao ? cores[index] : corPadrao;
     mudarCor(areaClique, novaCor);
     coresAtuais[index] = novaCor;
-
-    if(novaCor !== corPadrao){
-      areaClique.classList.add('ativo');
-    }else{
-      areaClique.classList.remove('ativo');
-    }
-
-    if (novaCor === corPadrao) {
-      coresAtivas.delete(index);
-    }else{
-      coresAtivas.add(index);
-    }
   });
 });
 
@@ -32,22 +22,37 @@ function mudarCor(areaClique, cor) {
   areaClique.style.backgroundColor = cor;
 }
 
-function reproduzirSonsEmSequencia() {
-  var indicesAtivos = Array.from(coresAtivas);
+clicarSom.forEach(clique => 
+  clique.addEventListener('click', function () {
+    clique.classList.toggle('ativo');
+    if(clique.classList.contains('ativo')){
+      arrayDeSom.add(clique);
+    }else{
+      arrayDeSom.delete(clique);
+    }
+    console.log(arrayDeSom)
+})
+)
 
-  function reproduzirProximoSom(indice){
-     if(indice < indicesAtivos.length){
-      
-      var som = audio[1].kick;
+function reproduzirSonsEmSequencia() {
+  var elementosAtivos = Array.from(arrayDeSom);
+
+  function reproduzirProximoSom(indice) {
+    if (elementosAtivos.length === 0){
+      return;
+    } 
+      var elemento = elementosAtivos[indice % elementosAtivos.length];
+      var soundKey = elemento.dataset.sound;
+      var som = audio[1][soundKey];
       var quadrado = new Audio(som);
 
       quadrado.currentTime = 0;
       quadrado.play();
 
-      quadrado.onended = function() {
-        reproduzirProximoSom(indice + 1);
+      quadrado.onended = function () {
+      reproduzirProximoSom(indice + 1);
       }
-     }
+    
   }
   reproduzirProximoSom(0);
 }
