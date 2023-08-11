@@ -30,17 +30,22 @@ clicarSom.forEach(clique =>
     }else{
       arrayDeSom.delete(clique);
     }
-    console.log(arrayDeSom)
+    console.log(arrayDeSom);
+    return;  
 })
 )
+var isPlaying = false;
 
 function reproduzirSonsEmSequencia() {
   var elementosAtivos = Array.from(arrayDeSom);
 
   function reproduzirProximoSom(indice) {
-    if (elementosAtivos.length === 0){
+    if(!isPlaying){
       return;
-    } 
+    }
+    if(elementosAtivos.length === 0){
+      return;
+    }
       var elemento = elementosAtivos[indice % elementosAtivos.length];
       var soundKey = elemento.dataset.sound;
       var som = audio[1][soundKey];
@@ -52,45 +57,14 @@ function reproduzirSonsEmSequencia() {
       quadrado.onended = function () {
       reproduzirProximoSom(indice + 1);
       }
-    
   }
-  reproduzirProximoSom(0);
+  isPlaying = !isPlaying;
+  if(isPlaying){
+    reproduzirProximoSom(0);
+  }
 }
 
 var botaoPlay = document.getElementById('play');
 botaoPlay.addEventListener('click', reproduzirSonsEmSequencia);
 
-
-/*
------- Sai som ao clicar ------
-
-const soundMap = {
-  '.som_re': 're',
-  '.som_si': 'si',
-  '.som_do': 'do',
-  '.som_mi': 'mi',
-  '.som_fa': 'fa',
-  '.kick': 'kick',
-};
-
-function adicionarEventoESom(elemento, somKey) {
-  var som = audio[1][somKey];
-  var quadrado = new Audio(som);
-
-  elemento.addEventListener('click', () => {
-    quadrado.currentTime = 0;
-    quadrado.play();
-  });
-}
-
-for (const selector in soundMap) {
-  const elements = document.querySelectorAll(selector);
-  const soundKey = soundMap[selector];
-
-  elements.forEach((elemento) => {
-    adicionarEventoESom(elemento, soundKey);
-  });
-}
-
-*/
 
