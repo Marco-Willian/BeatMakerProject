@@ -34,6 +34,8 @@ clicarSom.forEach(clique =>
     return;  
 })
 )
+
+var intervaloDeTempo = 1000;
 var isPlaying = false;
 
 function reproduzirSonsEmSequencia() {
@@ -55,7 +57,9 @@ function reproduzirSonsEmSequencia() {
       quadrado.play();
 
       quadrado.onended = function () {
-      reproduzirProximoSom(indice + 1);
+      setTimeout(function(){
+        reproduzirProximoSom(indice + 1);
+      },intervaloDeTempo)
       }
   }
   isPlaying = !isPlaying;
@@ -68,3 +72,9 @@ var botaoPlay = document.getElementById('play');
 botaoPlay.addEventListener('click', reproduzirSonsEmSequencia);
 
 
+/* 
+  E se cada cada quadrado estivesse dentro de um array, onde por padrão possuem estado desativado e ao clicar 
+  tornam - se ativados podendo reproduzir o som ? Dessa forma, conseguiriamos colocar um tempo para passar em
+  cada index. Se Eu tenho um som na primeira posição e outro na quinta, ambos ativados, com tempo de percurso 
+  de 1 segunda por index, o tempo para ir do primeiro ao segundo seria de 5 segundos.
+*/
