@@ -6,8 +6,10 @@ var corPadrao = '#5A5A5A';
 
 var coresAtuais = Array.from(areasClique).map(() => corPadrao);
 
+/*
 var clicarSom = document.querySelectorAll('.som');
 var arrayDeSom = new Set();
+*/
 
 areasClique.forEach(function (areaClique, index) {
   areaClique.addEventListener('click', function () {
@@ -22,6 +24,48 @@ function mudarCor(areaClique, cor) {
   areaClique.style.backgroundColor = cor;
 }
 
+var matrizSons = [];
+
+for(var i = 0;i < 6; i++){
+  var linha = [];
+
+  for(var j = 0; j < 6; j++){
+    var elemento = document.querySelector('.som[data-row="' + i + '"][data-col="' + j +'"]');
+    linha.push(elemento);
+  }
+
+  matrizSons.push(linha);
+}
+
+console.log(matrizSons)
+
+matrizSons.forEach(function(linha, rowIndex){
+  linha.forEach(function(elemento,colIndex){
+    elemento.addEventListener('click',function(){
+      elemento.classList.toggle('ativo');
+      console.log(elemento)
+    })
+  })
+})
+
+function reproduzirSons(){
+  matrizSons.forEach(function(linha){
+    linha.forEach(function(elemento){
+      if(elemento.classList.contains('ativo')){
+        var soundKey = elemento.dataset.soundKey
+        var som = audio[1][soundKey]
+        var quadrado = new Audio(som)
+
+        quadrado.currentTime = 0;
+        quadrado.play();
+      }
+    })
+  })
+}
+
+var botaoPlay = document.getElementById('play');
+botaoPlay.addEventListener('click',reproduzirSons);
+/*
 clicarSom.forEach(clique => 
   clique.addEventListener('click', function () {
     clique.classList.toggle('ativo');
@@ -35,7 +79,7 @@ clicarSom.forEach(clique =>
 })
 )
 
-var intervaloDeTempo = 1000;
+var intervaloDeTempo = 100;
 var isPlaying = false;
 
 function reproduzirSonsEmSequencia() {
@@ -71,10 +115,38 @@ function reproduzirSonsEmSequencia() {
 var botaoPlay = document.getElementById('play');
 botaoPlay.addEventListener('click', reproduzirSonsEmSequencia);
 
+*/
 
 /* 
-  E se cada cada quadrado estivesse dentro de um array, onde por padrão possuem estado desativado e ao clicar 
+(1°)  E se cada cada quadrado estivesse dentro de um array, onde por padrão possuem estado desativado e ao clicar 
   tornam - se ativados podendo reproduzir o som ? Dessa forma, conseguiriamos colocar um tempo para passar em
   cada index. Se Eu tenho um som na primeira posição e outro na quinta, ambos ativados, com tempo de percurso 
-  de 1 segunda por index, o tempo para ir do primeiro ao segundo seria de 5 segundos.
+  de 1 segundo por index, o tempo para ir do primeiro ao segundo seria de 5 segundos.
+
+  Cada quadrado possue uma posição fixa no vetor, já predefindo.
+
+  = [
+
+  [1° som (desativado)] ---> [2° som (desativado)] ---> [3° som (desativado)] ---> [4° som (desativado)] ---> [...] ---> ...
+
+  ]
+  
+  [som ativo (tocar)] ---> [som desativado] ---> [som ativo (tocar)] ---> [som desativado] ---> [...] ---> ...
+
+  o que eu quero dizer ?
+
+  array = [
+  [1,2,3]
+  [4,5,6]
+  [7,8,9]
+  [10,11,12]
+  [13,14,15]
+  ]
+
+  O espaço array[3][1] = 8, possue seu espaço fixo e ninguém pode invedir ele. Não será uma fila ou pilha.
+  O som 10 é fixo no lugar que ele está. Por exemplo. Suponha que eu adicione os sons 1, 5, 9; caso eu adicione
+  o 8, a sequência deve ficar 1, 5, 8, 9.
+
+  E se eu tivesse uma matriz onde eu verifico sempre a coluna? Verifico se na primeira coluna existe som em suas linhas
+  e vou fazendo isso para todas as outras colunas.
 */
