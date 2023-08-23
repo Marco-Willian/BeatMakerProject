@@ -37,27 +37,42 @@ for(var i = 0;i < 6; i++){
   matrizSons.push(linha);
 }
 
-console.log(matrizSons)
+console.log(matrizSons);
 
 matrizSons.forEach(function(linha, rowIndex){
   linha.forEach(function(elemento,colIndex){
     elemento.addEventListener('click',function(){
       elemento.classList.toggle('ativo');
-      console.log(elemento)
-    })
-  })
-})
+      console.log(elemento);
+    });
+  });
+});
 
 function reproduzirSons(){
   matrizSons.forEach(function(linha){
-    linha.forEach(function(elemento){
+    linha.forEach(function(elemento, colIndex){
       if(elemento.classList.contains('ativo')){
-        var soundKey = elemento.dataset.soundKey
-        var som = audio[1][soundKey]
-        var quadrado = new Audio(som)
+        var soundKey = elemento.dataset.sound;
+        var som = audio[1][soundKey];
+        var quadrado = new Audio(som);
 
         quadrado.currentTime = 0;
         quadrado.play();
+
+        // quadrado.onended = function () {
+          
+        //   if(linha[colIndex + 1] && linha[colIndex + 1].classList.contains('ativo')){
+        //     var nextSoundKey = linha[colIndex + 1].dataset.sound;
+        //     var nextSound = audio[1][nextSoundKey];
+
+        //     setTimeout(function () {
+        //       var nextQuadrado = new Audio(nextSound);
+        //       nextQuadrado.currentTime = 0;
+        //       nextQuadrado.play();
+
+        //     },1000);
+        //   }
+        // }
       }
     })
   })
@@ -143,10 +158,20 @@ botaoPlay.addEventListener('click', reproduzirSonsEmSequencia);
   [13,14,15]
   ]
 
-  O espaço array[3][1] = 8, possue seu espaço fixo e ninguém pode invedir ele. Não será uma fila ou pilha.
+  O espaço array[3][1] = 8, possue seu espaço fixo e ninguém pode invadir ele. Não será uma fila ou pilha.
   O som 10 é fixo no lugar que ele está. Por exemplo. Suponha que eu adicione os sons 1, 5, 9; caso eu adicione
   o 8, a sequência deve ficar 1, 5, 8, 9.
 
   E se eu tivesse uma matriz onde eu verifico sempre a coluna? Verifico se na primeira coluna existe som em suas linhas
   e vou fazendo isso para todas as outras colunas.
+
+  criar um array para colocar os elementos que estao ativos na matriz. Porem, a matriz tera uma ierarquia, indo de 1 ate n
+  [1,2,3,4,5,6]
+  ...
+  [31,32,33,34,35,36]
+
+  Esse array eh um 6x6, logo meu vetor tera tamanho 36. Se eu pegar o elemento 5 na matriz ele devera ocupar a posicao no
+  array.
+
+  [_,_,_,_,5,_,_,...,_] onde _ significa vazio.
 */
