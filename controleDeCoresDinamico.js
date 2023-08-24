@@ -5,6 +5,7 @@ var cores = ['#1ccb38', '#c1093c', '#a60dc3', '#d09c58', '#B9CF77', '#CFBF80'];
 var corPadrao = '#5A5A5A';
 
 var coresAtuais = Array.from(areasClique).map(() => corPadrao);
+var arraySons = new Array()
 
 /*
 var clicarSom = document.querySelectorAll('.som');
@@ -26,24 +27,45 @@ function mudarCor(areaClique, cor) {
 
 var matrizSons = [];
 
+
+console.log(arraySons)
+
 for(var i = 0;i < 6; i++){
   var linha = [];
-
   for(var j = 0; j < 6; j++){
+    arraySons.push({
+      linha: i,
+      coluna: j,
+      ativo: false,
+      div: null
+    })
     var elemento = document.querySelector('.som[data-row="' + i + '"][data-col="' + j +'"]');
     linha.push(elemento);
+    elemento.setAttribute("id",i +"-"+ j);
   }
-
   matrizSons.push(linha);
 }
 
 console.log(matrizSons);
 
-matrizSons.forEach(function(linha, rowIndex){
-  linha.forEach(function(elemento,colIndex){
+matrizSons.forEach(function(linha){
+  linha.forEach(function(elemento){
     elemento.addEventListener('click',function(){
+      var linha = elemento.id.split('-')[0]
+      var coluna = elemento.id.split('-')[1]
+      console.log(arraySons)
+      var itemDoArraySelecionado = arraySons.find((item)=> item.linha == linha && item.coluna == coluna)
+      console.log(itemDoArraySelecionado)
+      itemDoArraySelecionado.ativo = !itemDoArraySelecionado.ativo
+      itemDoArraySelecionado.div = elemento;
+
       elemento.classList.toggle('ativo');
-      console.log(elemento);
+      if(elemento.classList.contains('ativo')){
+        arraySons.push(elemento)
+      }else{
+        arraySons.pop(elemento)
+      }
+      console.log(arraySons)
     });
   });
 });
@@ -174,4 +196,6 @@ botaoPlay.addEventListener('click', reproduzirSonsEmSequencia);
   array.
 
   [_,_,_,_,5,_,_,...,_] onde _ significa vazio.
+
+  Elementos da mesma coluna devem tocar ao mesmo tempo se estiverem ativos.
 */
