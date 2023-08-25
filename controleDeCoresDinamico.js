@@ -5,7 +5,7 @@ var cores = ['#1ccb38', '#c1093c', '#a60dc3', '#d09c58', '#B9CF77', '#CFBF80'];
 var corPadrao = '#5A5A5A';
 
 var coresAtuais = Array.from(areasClique).map(() => corPadrao);
-var arraySons = new Array()
+var arraySons = new Array();
 
 /*
 var clicarSom = document.querySelectorAll('.som');
@@ -51,28 +51,27 @@ console.log(matrizSons);
 matrizSons.forEach(function(linha){
   linha.forEach(function(elemento){
     elemento.addEventListener('click',function(){
-      var linha = elemento.id.split('-')[0]
-      var coluna = elemento.id.split('-')[1]
-      console.log(arraySons)
-      var itemDoArraySelecionado = arraySons.find((item)=> item.linha == linha && item.coluna == coluna)
-      console.log(itemDoArraySelecionado)
-      itemDoArraySelecionado.ativo = !itemDoArraySelecionado.ativo
-      itemDoArraySelecionado.div = elemento;
-
-      elemento.classList.toggle('ativo');
-      if(elemento.classList.contains('ativo')){
-        arraySons.push(elemento)
-      }else{
-        arraySons.pop(elemento)
+      var linha = elemento.id.split('-')[0];
+      var coluna = elemento.id.split('-')[1];
+      var itemDoArraySelecionado = arraySons.find((item)=> item.linha == linha && item.coluna == coluna);
+      if(itemDoArraySelecionado){
+      itemDoArraySelecionado.ativo = !itemDoArraySelecionado.ativo;
+      itemDoArraySelecionado.div = itemDoArraySelecionado.ativo ? elemento : null;
+      // if(itemDoArraySelecionado.ativo){
+      // itemDoArraySelecionado.div = elemento;
+      // }else{
+      // itemDoArraySelecionado.div = null;
+      // }
       }
       console.log(arraySons)
     });
   });
 });
 
+/*
 function reproduzirSons(){
   matrizSons.forEach(function(linha){
-    linha.forEach(function(elemento, colIndex){
+    linha.forEach(function(elemento){
       if(elemento.classList.contains('ativo')){
         var soundKey = elemento.dataset.sound;
         var som = audio[1][soundKey];
@@ -99,9 +98,11 @@ function reproduzirSons(){
     })
   })
 }
-
+*/
+/*
 var botaoPlay = document.getElementById('play');
 botaoPlay.addEventListener('click',reproduzirSons);
+*/
 /*
 clicarSom.forEach(clique => 
   clique.addEventListener('click', function () {
@@ -113,23 +114,25 @@ clicarSom.forEach(clique =>
     }
     console.log(arrayDeSom);
     return;  
-})
-)
+  })
+  )
+  */
 
 var intervaloDeTempo = 100;
 var isPlaying = false;
 
 function reproduzirSonsEmSequencia() {
-  var elementosAtivos = Array.from(arrayDeSom);
+  // var elementosAtivos = Array.from(arraySons);
 
   function reproduzirProximoSom(indice) {
     if(!isPlaying){
       return;
     }
-    if(elementosAtivos.length === 0){
+    if(arraySons.length === 0){
       return;
     }
-      var elemento = elementosAtivos[indice % elementosAtivos.length];
+    arraySons.forEach(function(elemento){
+      if(!elemento.ativo){
       var soundKey = elemento.dataset.sound;
       var som = audio[1][soundKey];
       var quadrado = new Audio(som);
@@ -142,6 +145,9 @@ function reproduzirSonsEmSequencia() {
         reproduzirProximoSom(indice + 1);
       },intervaloDeTempo)
       }
+      }
+    })
+      // var elemento = elementosAtivos[indice % elementosAtivos.length];
   }
   isPlaying = !isPlaying;
   if(isPlaying){
@@ -152,7 +158,7 @@ function reproduzirSonsEmSequencia() {
 var botaoPlay = document.getElementById('play');
 botaoPlay.addEventListener('click', reproduzirSonsEmSequencia);
 
-*/
+
 
 /* 
 (1°)  E se cada cada quadrado estivesse dentro de um array, onde por padrão possuem estado desativado e ao clicar 
