@@ -1,6 +1,7 @@
 import audio from "./sounds.js";
 
 var areasClique = document.querySelectorAll('.tocadores_colunas');
+var evento = document.querySelectorAll('.som');
 var cores = ['#1ccb38', '#c1093c', '#a60dc3', '#d09c58', '#B9CF77', '#CFBF80'];
 var corPadrao = '#5A5A5A';
 
@@ -63,25 +64,24 @@ matrizSons.forEach(function(linha){
   });
 });
 
-function verificarColuna(){
-  var totalDeColunas = matrizSons[0].length;
+evento.forEach(function(clique){
+  clique.addEventListener('click', function(){
+    var totalDeColunas = matrizSons[0].length;
   var totalDeElementos = [];
 
   for(var colIndex = 0; colIndex < totalDeColunas; colIndex++){
 
-    var elementosDaColunaATivo = arraySons.filter((item) => item.coluna == colIndex && item.ativo)
+    var elementosDaColunaATivo = arraySons.filter((item) => item.coluna == colIndex && item.ativo);
 
     totalDeElementos.push(elementosDaColunaATivo);
   }
   console.log(totalDeElementos)
   return totalDeElementos;
-}
-
-
-
+  })
+})
 
 var botaoPlay = document.getElementById('play');
-botaoPlay.addEventListener('click', verificarColuna);
+// botaoPlay.addEventListener('click', verificarColuna);
 
 
 
