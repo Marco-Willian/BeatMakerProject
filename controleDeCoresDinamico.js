@@ -7,11 +7,6 @@ var corPadrao = '#5A5A5A';
 var coresAtuais = Array.from(areasClique).map(() => corPadrao);
 var arraySons = new Array();
 
-/*
-var clicarSom = document.querySelectorAll('.som');
-var arrayDeSom = new Set();
-*/
-
 areasClique.forEach(function (areaClique, index) {
   areaClique.addEventListener('click', function () {
     var corAtual = coresAtuais[index];
@@ -68,95 +63,25 @@ matrizSons.forEach(function(linha){
   });
 });
 
-/*
-function reproduzirSons(){
-  matrizSons.forEach(function(linha){
-    linha.forEach(function(elemento){
-      if(elemento.classList.contains('ativo')){
-        var soundKey = elemento.dataset.sound;
-        var som = audio[1][soundKey];
-        var quadrado = new Audio(som);
+function verificarColuna(){
+  var totalDeColunas = matrizSons[0].length;
+  var totalDeElementos = [];
 
-        quadrado.currentTime = 0;
-        quadrado.play();
+  for(var colIndex = 0; colIndex < totalDeColunas; colIndex++){
 
-        // quadrado.onended = function () {
-          
-        //   if(linha[colIndex + 1] && linha[colIndex + 1].classList.contains('ativo')){
-        //     var nextSoundKey = linha[colIndex + 1].dataset.sound;
-        //     var nextSound = audio[1][nextSoundKey];
+    var elementosDaColunaATivo = arraySons.filter((item) => item.coluna == colIndex && item.ativo)
 
-        //     setTimeout(function () {
-        //       var nextQuadrado = new Audio(nextSound);
-        //       nextQuadrado.currentTime = 0;
-        //       nextQuadrado.play();
-
-        //     },1000);
-        //   }
-        // }
-      }
-    })
-  })
-}
-*/
-/*
-var botaoPlay = document.getElementById('play');
-botaoPlay.addEventListener('click',reproduzirSons);
-*/
-/*
-clicarSom.forEach(clique => 
-  clique.addEventListener('click', function () {
-    clique.classList.toggle('ativo');
-    if(clique.classList.contains('ativo')){
-      arrayDeSom.add(clique);
-    }else{
-      arrayDeSom.delete(clique);
-    }
-    console.log(arrayDeSom);
-    return;  
-  })
-  )
-  */
-
-var intervaloDeTempo = 100;
-var isPlaying = false;
-
-function reproduzirSonsEmSequencia() {
-  // var elementosAtivos = Array.from(arraySons);
-
-  function reproduzirProximoSom(indice) {
-    if(!isPlaying){
-      return;
-    }
-    if(arraySons.length === 0){
-      return;
-    }
-    arraySons.forEach(function(elemento){
-      if(!elemento.ativo){
-      var soundKey = elemento.dataset.sound;
-      var som = audio[1][soundKey];
-      var quadrado = new Audio(som);
-
-      quadrado.currentTime = 0;
-      quadrado.play();
-
-      quadrado.onended = function () {
-      setTimeout(function(){
-        reproduzirProximoSom(indice + 1);
-      },intervaloDeTempo)
-      }
-      }
-    })
-      // var elemento = elementosAtivos[indice % elementosAtivos.length];
+    totalDeElementos.push(elementosDaColunaATivo);
   }
-  isPlaying = !isPlaying;
-  if(isPlaying){
-    reproduzirProximoSom(0);
-  }
+  console.log(totalDeElementos)
+  return totalDeElementos;
 }
 
+
+
+
 var botaoPlay = document.getElementById('play');
-botaoPlay.addEventListener('click', reproduzirSonsEmSequencia);
+botaoPlay.addEventListener('click', verificarColuna);
 
 
 
@@ -204,4 +129,7 @@ botaoPlay.addEventListener('click', reproduzirSonsEmSequencia);
   [_,_,_,_,5,_,_,...,_] onde _ significa vazio.
 
   Elementos da mesma coluna devem tocar ao mesmo tempo se estiverem ativos.
+
+  Iterar pelos elementos de cada coluna
+  Filtrar os elementos que são da mesma coluna.
 */
