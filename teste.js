@@ -12,3 +12,9 @@ var matriz = [
       console.log("Elemento na coluna " + col + ", linha " + row + ": " + elemento);
     }
   }
+
+  // if(itemDoArraySelecionado.ativo){
+      // itemDoArraySelecionado.div = elemento;
+      // }else{
+      // itemDoArraySelecionado.div = null;
+      // }
