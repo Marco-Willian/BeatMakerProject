@@ -7,6 +7,7 @@ var corPadrao = "#5A5A5A";
 
 var coresAtuais = Array.from(areasClique).map(() => corPadrao);
 var arraySons = new Array();
+var arraySepadoPorColuna = [];
 
 areasClique.forEach(function (areaClique, index) {
   areaClique.addEventListener("click", function () {
@@ -50,38 +51,90 @@ matrizSons.forEach(function (linha) {
     elemento.addEventListener("click", function () {
       var linha = elemento.id.split("-")[0];
       var coluna = elemento.id.split("-")[1];
-      var itemDoArraySelecionado = arraySons.find(
-        (item) => item.linha == linha && item.coluna == coluna
-      );
+      var itemDoArraySelecionado = arraySons.find((item) => item.linha == linha && item.coluna == coluna);
       if (itemDoArraySelecionado) {
         itemDoArraySelecionado.ativo = !itemDoArraySelecionado.ativo;
-        itemDoArraySelecionado.div = itemDoArraySelecionado.ativo
-          ? elemento
-          : null;
+        itemDoArraySelecionado.div = itemDoArraySelecionado.ativo ? elemento: null;
       }
       console.log(arraySons);
     });
   });
 });
 
+for(var j = 0; j < matrizSons[0].length; j++){
+  var coluna = [];
+  for(var i = 0; i < matrizSons.length; i++){
+    coluna.push(matrizSons[i][j]);
+  }
+  arraySepadoPorColuna.push(coluna);
+}
+
+console.log(arraySepadoPorColuna);
+
+var intervaloDeTempo = 1000;
+var colunaAtual = 0;
+var isPlaying = false;
+var sonsAtivos = [];
+
+function reproduzirColuna() {
+  if (!isPlaying) {
+    return;
+  }
+
+  sonsAtivos = arraySepadoPorColuna[colunaAtual].filter(
+    (item) => item && item.ativo
+  );
+
+  sonsAtivos.forEach(function (elemento) {
+    var soundKey = elemento.dataset.sound;
+    var som = audio[1][soundKey];
+    var quadrado = new Audio(som);
+
+    quadrado.currentTime = 0;
+    quadrado.play();
+  });
+
+  colunaAtual++;
+
+  if (colunaAtual < arraySepadoPorColuna.length) {
+    setTimeout(reproduzirColuna, intervaloDeTempo);
+  }
+}
+
 function reproduzirSom() {
+  isPlaying = true;
+  reproduzirColuna();
+}
+
+evento.forEach(function(clique){
+  clique.addEventListener('click',function(){
+    // sonsAtivos = arraySepadoPorColuna[colunaAtual].filter((item)=>item && item.ativo)
+  })
+})
+
+/*function reproduzir() {
+  // var totalDeColunas = matrizSons[0].length;
   var totalDeLinhas = matrizSons.length;
   var sonsAtivosPorLinha = new Array(totalDeLinhas).fill(null).map(()=>[]);
 
+  
+  //seperar arraySons em coluna
+  
   arraySons.forEach(function(item) {
     if(item.ativo && item.div){
       sonsAtivosPorLinha[item.linha].push(item);
     }
   });
+  console.log(arraySons)
 
   function tocarSom(somkey){
     var som = audio[1][somkey];
     var quadrado = new Audio(som);
 
-    return new Promise(function(x){
+    return new Promise(function(promise){
       quadrado.currentTime = 0;
       quadrado.play();
-      quadrado.onended = x;
+      quadrado.onended = promise;
     });
   }
 
@@ -113,10 +166,10 @@ function reproduzirSom() {
     })
   })
 
-  Promise.all(promises).then(function(){
-    // repeat();
-  });
-}
+  // Promise.all(promises).then(function(){
+  //   // repeat();
+  // });
+}*/
 
 var botaoPlay = document.getElementById("play");
 botaoPlay.addEventListener("click", reproduzirSom);
