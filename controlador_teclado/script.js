@@ -1,5 +1,5 @@
 // import   pressing   from "./keys.js";
-import  audio  from "./sounds.js";
+import  audio  from "../objects/sounds.js";
 
 
 const pegaValor = document.querySelector("#send");
