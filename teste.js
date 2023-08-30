@@ -13,8 +13,4 @@ var matriz = [
     }
   }
 
-  // if(itemDoArraySelecionado.ativo){
-      // itemDoArraySelecionado.div = elemento;
-      // }else{
-      // itemDoArraySelecionado.div = null;
-      // }
+  
