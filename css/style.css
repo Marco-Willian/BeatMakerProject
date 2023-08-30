@@ -21,11 +21,18 @@
   margin-bottom: 10px;
 }
 
-  .button{
-    width: 4rem;
-    height: 2rem;
-    margin-left: 0.25rem;
-  }
+.button {
+  width: 4rem;
+  height: 2rem;
+  margin-left: 0.25rem;
+}
+
+.beat{
+  background-color: #000000;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
 
 .container {
   display: grid;
@@ -34,10 +41,10 @@
 
 .container-child {
   display: grid;
-  grid-template-columns: 4.25rem 14.75rem;
+  grid-template-columns: 3.85rem 14rem;
 }
 
-.container_buttons{
+.container_buttons {
   display: grid;
   grid-template-columns: 5rem 15rem;
 }
@@ -48,8 +55,8 @@
 
 .tocadores_colunas {
   margin: 0.15rem;
-  width: 35px;
-  height: 35px;
+  width: 30px;
+  height: 30px;
   background-color: #5A5A5A;
   text-align: center;
   line-height: 100px;
@@ -59,8 +66,8 @@
 
 .tocadores_linhas {
   margin: 0.15rem;
-  width: 35px;
-  height: 35px;
+  width: 30px;
+  height: 30px;
   background-color: #5A5A5A;
   text-align: center;
   line-height: 100px;
@@ -68,34 +75,34 @@
   border-radius: 0.25rem;
 }
 
-.first.alterado{
+.first.alterado {
   background-color: #1ccb38;
 }
 
-.second.alterado{
+.second.alterado {
   background-color: #c1093c;
 }
 
-.third.alterado{
+.third.alterado {
   background-color: #a60dc3;
 }
 
-.fourth.alterado{
+.fourth.alterado {
   background-color: #d09c58;
 }
 
-.fifth.alterado{
+.fifth.alterado {
   background-color: #B9CF77;
 }
 
-.sixth.alterado{
+.sixth.alterado {
   background-color: #CFBF80;
 }
 
 .instrumento {
-  width: 4rem;
+  width: 3.5rem;
   margin: 0.15rem;
-  height: 35px;
+  height: 30px;
   background-color: #5A5A5A;
   text-align: center;
   line-height: 100px;
@@ -104,5 +111,5 @@
 }
 
 .ultima_linha {
-  width: 14.75rem;
+  width: 71.5rem;
 }
