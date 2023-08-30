@@ -79,7 +79,7 @@ function reproduzirSons(){
   var linha = 0;
 
   function tocarColuna(){
-    if(coluna >= 6){
+    if(colunaAtual >= 6){
       return;
     }
 
@@ -103,7 +103,7 @@ function reproduzirSons(){
 
     colunaAtual++;
 
-    setTimeout(tocarColuna, 1000)
+    setTimeout(tocarColuna, 500)
   }
   tocarColuna();
 }
