@@ -99,6 +99,10 @@
   background-color: #CFBF80;
 }
 
+.seventh.alterado{
+  background-color: #ffd500;
+}
+
 .instrumento {
   width: 3.5rem;
   margin: 0.15rem;
@@ -111,5 +115,5 @@
 }
 
 .ultima_linha {
-  width: 71.5rem;
+  width: 69.3rem;
 }

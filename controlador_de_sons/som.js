@@ -5,7 +5,7 @@ var matrizSons = [];
 
 console.log(arraySons);
 
-for (var j = 0; j < 33; j++) {
+for (var j = 0; j < 32; j++) {
   var coluna = [];
   for (var i = 0; i < 6; i++) {
     arraySons.push({
@@ -70,7 +70,7 @@ function reproduzirSons() {
   }
 
   function tocarColuna() {
-    if (colunaAtual >= 33) {
+    if (colunaAtual >= 32) {
       colunaAtual = 0;
     }
 
@@ -95,7 +95,7 @@ function reproduzirSons() {
     colunaAtual++;
 
     if(isPlaying){
-      setTimeout(tocarColuna, 300);
+      setTimeout(tocarColuna, 150);
     }
   }
 

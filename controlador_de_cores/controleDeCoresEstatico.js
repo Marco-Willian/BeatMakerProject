@@ -1,4 +1,4 @@
-var classes = ['.first','.second','.third','.fourth','.fifth','.sixth'];
+var classes = ['.first','.second','.third','.fourth','.fifth','.sixth','.seventh'];
 
 classes.forEach(function(classe){
     var areasClique = document.querySelectorAll(classe);

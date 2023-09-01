@@ -16,7 +16,8 @@ const audio =[
                 "do" : 'sounds/piano/316900__jaz_the_man_2__do-stretched-octave.wav',
                 "mi" : 'sounds/piano/316906__jaz_the_man_2__mi.wav',
                 "fa" : 'sounds/piano/316904__jaz_the_man_2__fa.wav',
-                "kick" : 'sounds/drums/105677__soniktec__kick-fx-marker-286.wav',
+                "cl": 'sounds/drums/Cymatics%20-%20Champagne%20Clap.wav',
+                "trilha" : 'sounds/drums/Cymatics%20-%20Pyramid%20-%20156%20BPM%20D%23%20Min.wav',
         }
                 
 ] 
