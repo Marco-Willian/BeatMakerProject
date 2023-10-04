@@ -26,7 +26,9 @@
   <div class="beat">
       <div class="container_buttons">
           <div>
-            <button class="button" id="play">Play</button>
+            <button data-playing="false" role="switch" aria-checked="false" class="button" id="play">
+              <span>Play/Pause</span>
+            </button>
           </div>
           <div>
             <input type="number" class="number">
@@ -247,7 +249,7 @@
         </div>
         <div class="container-child">
           <div class=" instrumento"></div>
-          <div class="tocadores_colunas ultima_linha"></div>
+          <div class="tocadores_colunas ultima_linha" id="trilha" data-sound="trilha" data-ativo="false"></div>
         </div>
       </div>
     </div>
