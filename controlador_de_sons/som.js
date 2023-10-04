@@ -172,7 +172,7 @@ function reproduzirSons() {
         colunaAtual++;
 
         if (isPlaying) {
-          setTimeout(tocarColuna, 350);
+          setTimeout(tocarColuna, 150);
         }
       })
       .catch(function (err) {
