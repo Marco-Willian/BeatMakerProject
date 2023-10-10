@@ -11,7 +11,7 @@ const audio =[
                 "tink": "sounds/drums/virtual-drum_sounds_tink.wav",
         },
         {
-                "si" : 'sounds/piano/316913__jaz_the_man_2__si.wav',
+                "si" : 'sounds/drums/virtual-drum_sounds_snare.wav',
                 "hithat" : 'sounds/Cymatics%20-%20Blitz%20Hihat.wav',
                 "crash" : 'sounds/Cymatics%20-%20Hard%20Crash.wav',
                 "snare" : 'sounds/Cymatics%20-%20Iconic%20Snare%20-%20F%23.wav',
